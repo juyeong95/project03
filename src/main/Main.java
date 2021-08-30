@@ -1,14 +1,13 @@
 package main;
 
 import java.util.Scanner;
-
-import juyeong.Student_arraylist;
+import juyeong.Student;
 
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		Student_arraylist j = new Student_arraylist();
+		Student j = new Student();
 		
 		int num;
 		while(true) {

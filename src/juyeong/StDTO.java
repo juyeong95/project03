@@ -8,6 +8,9 @@ public class StDTO {
 	private double avg;
 	private int rank;
 	private char grade;
+	private String addr;
+	private String numb;
+	private String pNum;
 	
 	public String getName() {
 		return name;
@@ -51,6 +54,25 @@ public class StDTO {
 	public void setGrade(char grade) {
 		this.grade = grade;
 	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getNumb() {
+		return numb;
+	}
+	public void setNumb(String numb) {
+		this.numb = numb;
+	}
+	public String getpNum() {
+		return pNum;
+	}
+	public void setpNum(String pNum) {
+		this.pNum = pNum;
+	}
+	
 	
 	
 	
