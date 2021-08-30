@@ -7,13 +7,13 @@ import java.util.Scanner;
 import juyeong.StDTO;
 
 public class Student_hashmap {
-	private String stNum;
-	private String name;
-	private int age;
+			private String stNum;
+			private String name;
+			private int age;
 
-		Scanner input = new Scanner(System.in);
-		HashMap<String, StDTO> map = new HashMap<String, StDTO>();
-		
+			Scanner input = new Scanner(System.in);
+			HashMap<String, StDTO> map = new HashMap<String, StDTO>();
+			
 			public void m() {
 				int num;
 				
@@ -33,43 +33,63 @@ public class Student_hashmap {
 						age=input.nextInt();
 						
 						StDTO dto = new StDTO();
-						dto.setStNum(stNum); dto.setName(name);
-						dto.setAge(num); 
 						
-						map.put(stNum,dto);
-						System.out.println("등록 완료!!");
+						if(map.containsKey(stNum)) {
+							System.out.println("이미 존재하는 학번입니다 다시 입력하세요.");
+							}
+						else {
+							dto.setStNum(stNum); dto.setName(name);
+							dto.setAge(age); map.put(stNum, dto);
+							System.out.println("등록 완료!!");
+						} 
+					
 						break;
 					case 2:
 						System.out.println("검색 할 학번 입력: ");
 						System.out.print(">>>");
 						stNum=input.next();
-						Iterator<String> it = map.keySet().iterator();
-						for(int i=0; i<map.size(); i++) {
-							if(stNum.contentEquals(map.get(i).getStNum())){
-								System.out.println("학번: "+map.get(i).getStNum());
-								System.out.println("이름: "+map.get(i).getName());
-								System.out.println("나이: "+map.get(i).getAge());
-							}else {
-								System.out.println("존재하지 않는 학번 입니다.");
-							}
+						
+						if(map.containsKey(stNum)) {
+							System.out.println("학번 :"+map.get(stNum).getStNum());
+							System.out.println("이름 :"+map.get(stNum).getName());
+							System.out.println("나이 :"+map.get(stNum).getAge());
+						}else {
+							System.out.println("입력하신 학번은 존재하지 않습니다.");
 						}
+						
 						
 						break;
 					case 3:
-						
+						System.out.println("수정 할 학생의 학번 입력: ");
+						System.out.print(">>>");
+						stNum=input.next();
+					
+						if(map.containsKey(stNum)) {
+							//System.out.println("학번 입력: ");
+							//map.get(stNum).setStNum(input.next());
+							System.out.println("이름 입력: ");
+							map.get(stNum).setName(input.next());
+							System.out.println("나이 입력: ");
+							map.get(stNum).setAge(input.nextInt());
+						}else {
+							System.out.println("입력하신 학번은 존재하지 않습니다.");
+						}
 						break;
 					case 4:
-						
+						System.out.print("삭제할 학번 입력: ");
+						stNum = input.next();
+						map.remove(stNum);
+						System.out.println("삭제 완료");
 						break;
 					case 5:
-						Iterator<String> it1 = map.keySet().iterator();
+						Iterator<String> it = map.keySet().iterator();
 						
 						System.out.println("----학생 정보 확인-----");
-						while(it1.hasNext()) {
-							StDTO s1 = map.get( it1.next() );
-							System.out.println("학번 : "+s1.getStNum());
-							System.out.println("이름 : "+s1.getName());
-							System.out.println("나이 : "+s1.getAge());
+						while(it.hasNext()) {
+							StDTO s = map.get( it.next() );
+							System.out.println("학번 : "+s.getStNum());
+							System.out.println("이름 : "+s.getName());
+							System.out.println("나이 : "+s.getAge());
 							System.out.println("---------------");
 						}
 						break;
@@ -79,16 +99,6 @@ public class Student_hashmap {
 					}
 				}
 			}
-			/*public int StSearch(String stNum) {
-				int i;
-				for( i=0; i<map.size() ;i++) {
-					StDTO d = map.get(i);
-					if(stNum.equals( d.getStNum()) ) {
-						return i;
-					}
-				}
-				return -1;
-			}
-				*/	
+			
 }
 
