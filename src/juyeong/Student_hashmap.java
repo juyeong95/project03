@@ -7,23 +7,53 @@ import java.util.Scanner;
 import juyeong.StDTO;
 
 public class Student_hashmap {
-		private String name,addr,numb,pnumb;
+	private String stNum;
+	private String name;
+	private int age;
+
 		Scanner input = new Scanner(System.in);
 		HashMap<String, StDTO> map = new HashMap<String, StDTO>();
+		
 			public void m() {
 				int num;
+				
 				System.out.println("학생 관리 프로그램을 실행합니다.");
 				
 				while(true) {
-					System.out.println("1.등록 2.전체 확인 3.검색 4.수정 5.삭제 6.종료");
+					System.out.println("1.등록 2.검색 3.수정 4.삭제 5.전체보기 6.나가기");
 					System.out.print(">>>");
 					num=input.nextInt();
 					switch(num) {
 					case 1:
-						c1();
+						System.out.println("학번 등록: ");
+						stNum=input.next();
+						System.out.println("이름 등록: ");
+						name=input.next();
+						System.out.println("나이 등록: ");
+						age=input.nextInt();
+						
+						StDTO dto = new StDTO();
+						dto.setStNum(stNum); dto.setName(name);
+						dto.setAge(num); 
+						
+						map.put(stNum,dto);
+						System.out.println("등록 완료!!");
 						break;
 					case 2:
-						c2();
+						System.out.println("검색 할 학번 입력: ");
+						System.out.print(">>>");
+						stNum=input.next();
+						Iterator<String> it = map.keySet().iterator();
+						for(int i=0; i<map.size(); i++) {
+							if(stNum.contentEquals(map.get(i).getStNum())){
+								System.out.println("학번: "+map.get(i).getStNum());
+								System.out.println("이름: "+map.get(i).getName());
+								System.out.println("나이: "+map.get(i).getAge());
+							}else {
+								System.out.println("존재하지 않는 학번 입니다.");
+							}
+						}
+						
 						break;
 					case 3:
 						
@@ -32,46 +62,33 @@ public class Student_hashmap {
 						
 						break;
 					case 5:
+						Iterator<String> it1 = map.keySet().iterator();
+						
+						System.out.println("----학생 정보 확인-----");
+						while(it1.hasNext()) {
+							StDTO s1 = map.get( it1.next() );
+							System.out.println("학번 : "+s1.getStNum());
+							System.out.println("이름 : "+s1.getName());
+							System.out.println("나이 : "+s1.getAge());
+							System.out.println("---------------");
+						}
 						break;
 					
 					case 6:
-						System.out.print("프로그램을 종료합니다.");
-						System.exit(0);
-				}
-				}
-			}
-			public void c1() {
-				
-				
-				System.out.println("이름 등록: ");
-				name=input.next();
-				System.out.println("학번 등록: ");
-				numb=input.next();
-				System.out.println("주소 등록: ");
-				addr=input.next();
-				System.out.println("전화번호 등록: ");
-				pnumb=input.next();
-				
-				StDTO dto = new StDTO();
-				dto.setName(name); dto.setpNum(pnumb);
-				dto.setNumb(numb); dto.setAddr(addr);
-				
-				map.put(name,dto);
-				
-			}
-			
-			public void c2() {
-				System.out.println("----학생 정보 확인-----");
-				Iterator<String> it = map.keySet().iterator();
-				while(it.hasNext()) {
-					StDTO s = map.get( it.next() );
-					System.out.println("학번    : "+s.getNumb());
-					System.out.println("이름    : "+s.getName());
-					System.out.println("주소    : "+s.getAddr());
-					System.out.println("전화번호 : "+s.getpNum());
-					System.out.println("---------------");
+						return;
+					}
 				}
 			}
-			
+			/*public int StSearch(String stNum) {
+				int i;
+				for( i=0; i<map.size() ;i++) {
+					StDTO d = map.get(i);
+					if(stNum.equals( d.getStNum()) ) {
+						return i;
+					}
+				}
+				return -1;
+			}
+				*/	
 }
 
