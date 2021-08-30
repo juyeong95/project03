@@ -16,7 +16,7 @@ public class Student_arraylist {
 			System.out.println("성적 관리 프로그램을 실행합니다.");
 			
 			while(true) {
-				System.out.println("1.등록 2.성적확인 3.등수확인 4. 5.종료");
+				System.out.println("1.등록 2.성적확인 3.등수확인 4.등급확인 5.종료");
 				System.out.print(">>>");
 				num=input.nextInt();
 				switch(num) {
@@ -30,7 +30,7 @@ public class Student_arraylist {
 					c3();
 					break;
 				case 4:
-					//c4();
+					c4();
 					break;
 				case 5:
 					System.out.print("프로그램을 종료합니다.");
@@ -88,11 +88,12 @@ public class Student_arraylist {
 				
 			}
 		}
-		/*public void c4() {
+		public void c4() {
 			
 			for(int i=0;i<list.size();i++) {
 				char grade;
-				switch((int)avg/10) {
+				int n = (int)(list.get(i).getAvg())/10;
+				switch(n) {
 				case 10:
 				case 9:
 					grade = 'A';
@@ -121,7 +122,7 @@ public class Student_arraylist {
 			+list.get(i).getGrade()+"등급");
 				
 			}
-		}*/
+		}
 }
 
 
