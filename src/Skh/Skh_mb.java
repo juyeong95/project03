@@ -36,7 +36,7 @@ public class Skh_mb {
 			}
 				
 				break;
-			case 3 : System.out.println("종료합니다."); return;
+			case 3 : 
 			}
 		}
 	}
