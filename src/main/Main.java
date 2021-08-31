@@ -3,10 +3,13 @@ package main;
 import java.util.Scanner;
 import seeon.seoon;
 
+import Skh.Skh_mb;
+
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Skh_mb skh = new Skh_mb();
 		int num;
 		seoon so = new seoon();
 		while(true) {
@@ -16,7 +19,8 @@ public class Main {
 			case 1:break;
 			case 2: so.seoon(); break;
 			case 3:break;
-			case 4:break;
+			case 4: skh.print();
+				break;
 			case 5: break;
 			}
 		}
