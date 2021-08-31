@@ -45,6 +45,7 @@ public class seoon_arraylist {
 				dto.setMajor(major);
 				dto.setAge(age);
 				list.add(dto);
+				System.out.println("등록되었습니다.");
 				}
 				break;
 			
@@ -60,7 +61,6 @@ public class seoon_arraylist {
 						System.out.println("학번 : " + list.get(i).getId());
 						System.out.println("전공 : " + list.get(i).getMajor());
 						System.out.println("나이 : " + list.get(i).getAge());
-						System.out.println("----------------------");
 					}
 					break;
 					
@@ -74,7 +74,6 @@ public class seoon_arraylist {
 							System.out.println("학번 : " + list.get(i).getId());
 							System.out.println("전공 : " + list.get(i).getMajor());
 							System.out.println("나이 : " + list.get(i).getAge());
-							System.out.println("----------------------");
 						}
 					}
 					break;
@@ -87,12 +86,17 @@ public class seoon_arraylist {
 				for( i = 0; i < list.size(); i++) {
 					if(list.get(i).getId() == id) {
 					System.out.print("학생명 입력 : ");
-					dto.setName(sc.next());
+					name = sc.next();
 					System.out.print("전공 입력 : ");
-					dto.setMajor(sc.next());
+					major = sc.next();
 					System.out.print("나이 입력 : ");
-					dto.setAge(sc.nextInt());	
+					age = sc.nextInt();
+					
+					list.get(i).setName(name);
+					list.get(i).setMajor(major);
+					list.get(i).setAge(age);
 					}
+					System.out.println("수정되었습니다.");
 				}
 				break;
 			
