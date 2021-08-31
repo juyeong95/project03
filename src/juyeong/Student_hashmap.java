@@ -40,7 +40,7 @@ public class Student_hashmap {
 						else {
 							dto.setStNum(stNum); dto.setName(name);
 							dto.setAge(age); map.put(stNum, dto);
-							System.out.println("등록 완료!!");
+							System.out.println("등록 완료");
 						} 
 					
 						break;
@@ -65,12 +65,11 @@ public class Student_hashmap {
 						stNum=input.next();
 					
 						if(map.containsKey(stNum)) {
-							//System.out.println("학번 입력: ");
-							//map.get(stNum).setStNum(input.next());
 							System.out.println("이름 입력: ");
 							map.get(stNum).setName(input.next());
 							System.out.println("나이 입력: ");
 							map.get(stNum).setAge(input.nextInt());
+							System.out.println("수정 완료");
 						}else {
 							System.out.println("입력하신 학번은 존재하지 않습니다.");
 						}

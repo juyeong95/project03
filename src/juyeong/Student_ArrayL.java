@@ -7,7 +7,7 @@ public class Student_ArrayL {
 	private ArrayList<StDTO> list;
 	private Scanner input;
 	private String stNum;
-	private String name;
+	private String name;;
 	private int age;
 
 	public Student_ArrayL() {
@@ -26,39 +26,36 @@ public class Student_ArrayL {
 			case 1:
 				StDTO dto = new StDTO();
 				boolean bool = true;
-				if(list.size() != 0) { 
+				if(list.size() != 0) {
 					while(bool) {
-						System.out.println("학번");
+						System.out.println("학번을 입력하세요: ");
 						dto.setStNum( input.next() );
 						
 						index = StSearch( dto.getStNum() );
 						if(index != -1) {
-							System.out.println("동일한 학번이 존재 합니다");
+							System.out.println("이미 존재하는 학번 입니다.");
 						}
 						if(index == -1) {
 							bool = false;
 						}
 					}
-				}else { 
-					System.out.println("학번");
+				}else {
+					System.out.println("학번을 입력하세요: ");
 					dto.setStNum( input.next() );
 				}
-				System.out.println("이름");
+				System.out.println("이름을 입력하세요: ");
 				name = input.next();
 				dto.setName(name);
 
-				System.out.println("주소");
-				dto.setAddr( input.next() );
-
-				System.out.println("나이");
+				System.out.println("나이를 입력하세요: ");
 				dto.setAge( input.nextInt() );
 
 				list.add(dto);
 
-				System.out.println("저장 되었습니다!!!");
+				System.out.println("저장이 완료되었습니다.");
 				break;
 			case 2:
-				System.out.println("검색 학번 입력");
+				System.out.println("검색 학번 입력: ");
 				stNum = input.next();
 				
 				index = StSearch(stNum);
@@ -66,17 +63,16 @@ public class Student_ArrayL {
 				if(index != -1) {
 					System.out.println("학번 : "+list.get(index).getStNum());
 					System.out.println("이름 : "+list.get(index).getName());
-					System.out.println("주소 : "+list.get(index).getAddr());
 					System.out.println("나이 : "+list.get(index).getAge());
 					System.out.println("---------------------");
 				}
 				if(index==-1 ) {
-					System.out.println("찾는 학번은 존재하지 않습니다");
+					System.out.println("입력하신 학번이 존재하지 않습니다.");
 				}
 
 				break;
 			case 3:
-				System.out.println("수정 학번 입력");
+				System.out.println("수정 학번 입력: ");
 				stNum = input.next();
 				
 				index = StSearch(stNum);
@@ -84,22 +80,20 @@ public class Student_ArrayL {
 				if(index != -1) {
 					StDTO d = list.get(index);
 					
-					System.out.println("수정할 이름 입력");
+					System.out.println("수정할 이름 입력: ");
 					d.setName( input.next() );
-					System.out.println("수정할 주소 입력");
-					d.setAddr( input.next() );
-					System.out.println("수정할 나이 입력");
+					System.out.println("수정할 나이 입력: ");
 					d.setAge( input.nextInt() );
-					System.out.println("수정 되었습니다");
+					System.out.println("수정 완료되었습니다");
 				}
 				
 				if(index == -1 ) {
-					System.out.println("수정할 학번은 존재하지 않습니다");
+					System.out.println("입력하신 학번이 존재하지 않습니다.");
 				}
 
 				break;
 			case 4:
-				System.out.println("삭제 학번 입력");
+				System.out.println("삭제 학번 입력: ");
 				stNum = input.next();
 				index = StSearch(stNum);
 				if(index != -1) {
@@ -107,7 +101,7 @@ public class Student_ArrayL {
 					System.out.println("삭제 되었습니다");
 				}
 				if(index == -1) {
-					System.out.println("삭제할 학번은 존재하지 않습니다");
+					System.out.println("입력하신 학번이 존재하지 않습니다.");
 				}
 				break;
 			case 5:
@@ -115,7 +109,6 @@ public class Student_ArrayL {
 				for(i=0 ; i<list.size() ; i++) {
 					System.out.println("학번 : "+list.get(i).getStNum());
 					System.out.println("이름 : "+list.get(i).getName());
-					System.out.println("주소 : "+list.get(i).getAddr());
 					System.out.println("나이 : "+list.get(i).getAge());
 					System.out.println("---------------------");
 				}
