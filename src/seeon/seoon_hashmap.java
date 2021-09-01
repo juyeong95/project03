@@ -39,8 +39,10 @@ public class seoon_hashmap {
 					dto.setMajor(major);
 					dto.setAge(age);
 					map.put(id, dto);
+					System.out.println("등록되었습니다.");
 				}
 				break;
+				
 			case 2:
 				System.out.println("1. 전체 학생 보기\n2. 학번으로 찾기");
 				num = sc.nextInt();
@@ -55,9 +57,9 @@ public class seoon_hashmap {
 						System.out.println("학번 : " + st.getId());
 						System.out.println("전공 : " + st.getMajor());
 						System.out.println("나이 : " + st.getAge());
-						System.out.println("----------------------");
 						}
 					break;
+					
 				case 2:
 					System.out.println("학번 입력 : ");
 					id = sc.nextInt();
@@ -66,7 +68,6 @@ public class seoon_hashmap {
 					System.out.println("학번 : " + map.get(id).getId());
 					System.out.println("전공 : " + map.get(id).getMajor());
 					System.out.println("나이 : " + map.get(id).getAge());
-					System.out.println("----------------------");
 					break;
 				}
 				break;
@@ -80,6 +81,7 @@ public class seoon_hashmap {
 				map.get(id).setMajor(sc.next());
 				System.out.print("나이 입력 : ");
 				map.get(id).setAge(sc.nextInt());	
+				System.out.println("수정되었습니다.");
 				break;
 				
 			case 4:
@@ -88,6 +90,7 @@ public class seoon_hashmap {
 				map.remove(id);
 				System.out.println("삭제되었습니다.");
 				break;
+				
 			case 5:
 				seoon so = new seoon();
 				so.seoon();
