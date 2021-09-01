@@ -1,15 +1,14 @@
 package main;
 
 import java.util.Scanner;
+
 import seeon.seoon;
-
-import Skh.Skh_mb;
-
+import skh.Skh_main;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		Skh_mb skh = new Skh_mb();
+		Skh_main skh = new Skh_main();
 		int num;
 		seoon so = new seoon();
 		while(true) {
@@ -19,7 +18,7 @@ public class Main {
 			case 1:break;
 			case 2: so.seoon(); break;
 			case 3:break;
-			case 4: skh.print();
+			case 4: skh.display();
 				break;
 			case 5: break;
 			}
